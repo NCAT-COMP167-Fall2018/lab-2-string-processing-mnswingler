@@ -21,9 +21,10 @@ public class StringProccessing {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
+       String[] records = new String[100]; 
+       try {
             // TODO code application logic here
-            String[] records = new String[100];
+            
             Scanner reader = new Scanner(new File(args[0]));
             
             int currentIndex = 0;
@@ -37,11 +38,20 @@ public class StringProccessing {
                 String phoneNumber = line[4];
                 String email = line[5];
                 
-                records[currentIndex] = String.format(firstName, lastName, age, gender, phoneNumber, email);
+               
+                records[currentIndex] = String.format("%-20s%-20s%-20s%-10s%-20s%-10s", firstName, lastName, age, gender, phoneNumber, email);
+                System.out.println(records[currentIndex]);
+                currentIndex++;
+               
+               
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(StringProccessing.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
+       
+       
     }
+    
     
 }
